@@ -1,0 +1,13 @@
+CREATE TABLE IF NOT EXISTS contacts (
+  id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+  user_id INT UNSIGNED NOT NULL,
+  name VARCHAR(120) NOT NULL,
+  email VARCHAR(160) NULL,
+  phone VARCHAR(30) NULL,
+  is_supplier BOOLEAN NOT NULL DEFAULT FALSE,
+  is_buyer BOOLEAN NOT NULL DEFAULT FALSE,
+  notes TEXT NULL,
+  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  CONSTRAINT fk_contacts_user FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE,
+  INDEX idx_contacts_roles (user_id, is_supplier, is_buyer)
+);

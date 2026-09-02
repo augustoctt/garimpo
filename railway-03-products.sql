@@ -1,0 +1,21 @@
+CREATE TABLE IF NOT EXISTS products (
+  id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+  user_id INT UNSIGNED NOT NULL,
+  code VARCHAR(20) NOT NULL,
+  name VARCHAR(120) NOT NULL,
+  category VARCHAR(80) NOT NULL,
+  subcategory VARCHAR(80) NOT NULL,
+  size VARCHAR(30) NOT NULL,
+  condition_grade VARCHAR(40) NOT NULL,
+  price DECIMAL(10,2) NOT NULL DEFAULT 0,
+  entry_date DATE NOT NULL,
+  origin VARCHAR(120) NOT NULL,
+  contact_id INT UNSIGNED NULL,
+  status ENUM('Disponível','Vendido','Reservado') NOT NULL DEFAULT 'Disponível',
+  notes TEXT NULL,
+  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  CONSTRAINT fk_products_user FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE,
+  CONSTRAINT fk_products_contact FOREIGN KEY (contact_id) REFERENCES contacts(id) ON DELETE SET NULL,
+  INDEX idx_products_date (user_id, entry_date),
+  INDEX idx_products_status (user_id, status)
+);
