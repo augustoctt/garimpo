@@ -27,6 +27,9 @@ No Render, escolha **New Web Service**, conecte o repositório e deixe o ambient
 
 Não publique `config/local.php`, `.env` ou senhas no GitHub. O arquivo `.env.example` contém somente os nomes das variáveis esperadas.
 
+### Banco no Railway
+No editor SQL do Railway, abra o banco MySQL e cole somente o conteúdo de `railway.sql`. Esse arquivo não contém `CREATE DATABASE` nem `USE`, pois o Railway já seleciona o banco automaticamente. Cole o arquivo inteiro de uma vez e execute. Não cole os prompts do terminal, como `bash-5.1#`, junto com o SQL.
+
 Se houver duas instâncias Snap (`mysql` e `mysql-strict`) usando as portas 3306/3307, mantenha apenas uma ativa para evitar conflito: `sudo snap stop mysql-strict`.
 
 ## Modelagem
