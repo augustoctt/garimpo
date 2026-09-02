@@ -23,9 +23,20 @@ Sistema web de gerenciamento de estoque de brechó desenvolvido para o trabalho 
 ## Publicar pelo GitHub
 O GitHub armazena o código, mas o GitHub Pages não executa PHP nem MySQL. Para colocar o sistema online, crie um repositório contendo somente esta pasta e conecte-o a um serviço com suporte a Docker, como Render.
 
-No Render, escolha **New Web Service**, conecte o repositório e deixe o ambiente Docker ser detectado pelo `Dockerfile`. Cadastre as variáveis `DB_HOST`, `DB_PORT`, `DB_NAME`, `DB_USER` e `DB_PASS` usando os dados de um MySQL hospedado. Depois importe o `database.sql` nesse banco. O arquivo `render.yaml` já declara as variáveis necessárias. Se a aplicação estiver hospedada no Railway, ela também reconhece automaticamente `MYSQLHOST`, `MYSQLPORT`, `MYSQLDATABASE`, `MYSQLUSER` e `MYSQLPASSWORD`.
+No Render, escolha **New Web Service**, conecte o repositório e deixe o ambiente Docker ser detectado pelo `Dockerfile`. Cadastre as variáveis `DB_HOST`, `DB_PORT`, `DB_NAME`, `DB_USER` e `DB_PASS` usando os dados de um MySQL hospedado. Depois importe o `database.sql` nesse banco. O arquivo `render.yaml` já declara as variáveis necessárias. Se a aplicação estiver hospedada no Railway, ela reconhece `MYSQLHOST`, `MYSQLPORT`, `MYSQLDATABASE`, `MYSQLUSER`, `MYSQLPASSWORD` e `MYSQL_URL`.
 
 Não publique `config/local.php`, `.env` ou senhas no GitHub. O arquivo `.env.example` contém somente os nomes das variáveis esperadas.
+
+### Variáveis no serviço web do Railway
+No serviço PHP, abra **Variables** e crie referências para o serviço MySQL. Se o serviço do banco se chama `MySQL`, use:
+```text
+DB_HOST=${{MySQL.MYSQLHOST}}
+DB_PORT=${{MySQL.MYSQLPORT}}
+DB_NAME=${{MySQL.MYSQLDATABASE}}
+DB_USER=${{MySQL.MYSQLUSER}}
+DB_PASS=${{MySQL.MYSQLPASSWORD}}
+```
+Troque `MySQL` pelo nome exato do serviço do seu banco. Salve e faça **Redeploy**. Não use `localhost` como `DB_HOST` no serviço web: o banco está em outro container.
 
 ### Banco no Railway
 No editor SQL do Railway, execute uma consulta por vez, nesta ordem:

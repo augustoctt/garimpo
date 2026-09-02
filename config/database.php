@@ -24,7 +24,8 @@ function db(): PDO
         ]);
         return $pdo;
     } catch (PDOException $exception) {
+        error_log('Database connection failed: ' . $exception->getMessage());
         http_response_code(500);
-        exit('Não foi possível conectar ao banco de dados. Confira as configurações no README.');
+        exit('Não foi possível conectar ao banco. No Railway, configure DB_HOST, DB_PORT, DB_NAME, DB_USER e DB_PASS no serviço web e faça redeploy.');
     }
 }
