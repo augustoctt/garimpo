@@ -1,0 +1,369 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Space+Grotesk:wght@500;700&display=swap');
+:root {
+    --ink: #17232b;
+    --muted: #64727a;
+    --mint: #dff5e9;
+    --green: #16805b;
+    --coral: #f07d63;
+    --cream: #fffaf1;
+    --line: #e5e8e3
+}
+
+.stock-photo {
+    color: var(--coral);
+    font-size: 1.35rem;
+}
+
+.brand-mark svg,
+.stock-photo svg {
+    width: 16px;
+    height: 16px;
+    stroke-width: 2.5;
+}
+
+.category-legend {
+    display: flex;
+    flex-wrap: wrap;
+    gap: .6rem;
+    margin: 1rem 0;
+}
+
+.category-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: .35rem;
+    padding: .35rem .55rem;
+    border: 1px solid var(--line);
+    border-radius: 999px;
+    color: var(--muted);
+    font-size: .78rem;
+    background: #fff;
+}
+
+.category-chip svg {
+    width: 15px;
+    height: 15px;
+    color: var(--green);
+}
+
+.category-select-wrap {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.category-select-wrap>svg {
+    position: absolute;
+    left: .75rem;
+    width: 17px;
+    height: 17px;
+    color: var(--green);
+    pointer-events: none;
+    z-index: 2;
+}
+
+.category-select-wrap .form-select {
+    padding-left: 2.35rem;
+}
+
+.btn svg {
+    width: 16px;
+    height: 16px;
+    vertical-align: -3px;
+}
+
+.status-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: .28rem;
+    font-weight: 600;
+    border-radius: 999px;
+    padding: .24rem .45rem;
+    font-size: .68rem;
+}
+
+.status-badge::before {
+    content: '';
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: currentColor;
+}
+
+.status-available {
+    color: #147a50;
+    background: #e1f6eb;
+}
+
+.status-sold {
+    color: #245c9a;
+    background: #e5effb;
+}
+
+.status-reserved {
+    color: #9a6500;
+    background: #fff1c7;
+}
+
+.status-neutral {
+    color: var(--muted);
+    background: #eef1ef;
+}
+
+.status-editor {
+    border: 1px solid color-mix(in srgb, currentColor 28%, transparent);
+    cursor: pointer;
+    appearance: none;
+    font: inherit;
+    text-align: left;
+    box-shadow: 0 1px 4px #17232b10;
+    transition: box-shadow .2s, transform .2s;
+}
+
+.status-editor:hover {
+    box-shadow: 0 3px 8px #17232b18;
+    transform: translateY(-1px);
+}
+
+.status-control {
+    display: inline-flex;
+    align-items: center;
+    position: relative;
+}
+
+.status-control .status-editor {
+    padding-right: .35rem;
+    min-width: 7.3rem;
+}
+
+.status-control>svg {
+    position: absolute;
+    right: .45rem;
+    width: 14px;
+    height: 14px;
+    pointer-events: none;
+}
+
+.status-control {
+    z-index: 4;
+}
+
+.status-editor svg {
+    width: 11px;
+    height: 11px;
+    margin-left: .35rem;
+    vertical-align: -2px;
+}
+
+.status-menu {
+    display: none;
+    position: absolute;
+    top: calc(100% + .3rem);
+    right: 0;
+    min-width: 8.8rem;
+    padding: .25rem;
+    background: #fff;
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    box-shadow: 0 8px 18px #17232b18;
+}
+
+.status-control.open .status-menu {
+    display: grid;
+    gap: .15rem;
+}
+
+.status-option {
+    display: flex;
+    align-items: center;
+    gap: .4rem;
+    border: 0;
+    border-radius: 7px;
+    padding: .42rem .5rem;
+    background: transparent;
+    color: var(--ink);
+    font: 500 .7rem 'DM Sans', sans-serif;
+    text-align: left;
+}
+
+.status-option:hover,
+.status-option.selected {
+    background: var(--mint);
+    color: var(--green);
+}
+
+.status-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--muted);
+}
+
+.status-option:nth-child(1) .status-dot {
+    background: #147a50;
+}
+
+.status-option:nth-child(2) .status-dot {
+    background: #245c9a;
+}
+
+.status-option:nth-child(3) .status-dot {
+    background: #9a6500;
+}
+
+.status-editor:focus {
+    outline: 1px solid var(--green);
+    outline-offset: 2px;
+}
+
+.category-chip {
+    transition: border-color .2s, color .2s, background .2s;
+    text-decoration: none;
+}
+
+.category-chip:hover,
+.category-chip.active {
+    border-color: var(--green);
+    color: var(--green);
+    background: var(--mint);
+}
+
+* {
+    box-sizing: border-box
+}
+
+body {
+    background: var(--cream);
+    color: var(--ink);
+    font-family: 'DM Sans', sans-serif;
+    min-height: 100vh
+}
+
+.navbar {
+    box-shadow: 0 3px 20px #17382a12
+}
+
+.app-nav {
+    background: var(--ink)
+}
+
+.navbar-brand {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 1.35rem
+}
+
+.brand-mark {
+    display: inline-grid;
+    place-items: center;
+    background: var(--coral);
+    color: #fff;
+    border-radius: 50%;
+    width: 28px;
+    height: 28px;
+    margin-right: 7px
+}
+
+.nav-user {
+    color: #d8e2dc;
+    font-size: .9rem
+}
+
+.hero {
+    background: var(--mint);
+    border-radius: 16px;
+    padding: 2.2rem;
+    margin-bottom: 1.5rem
+}
+
+.hero h1,
+.page-title {
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 700
+}
+
+.hero h1 {
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    max-width: 650px
+}
+
+.eyebrow {
+    color: var(--green);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: .08em;
+    font-size: .75rem
+}
+
+.panel,
+.stat-card {
+    background: #fff;
+    border: 1px solid var(--line);
+    border-radius: 12px
+}
+
+.panel {
+    padding: 1.25rem
+}
+
+.stat-card {
+    padding: 1.15rem;
+    height: 100%
+}
+
+.stat-number {
+    font: 700 2rem 'Space Grotesk';
+    color: var(--green)
+}
+
+.table thead th {
+    color: var(--muted);
+    font-size: .78rem;
+    text-transform: uppercase;
+    letter-spacing: .04em
+}
+
+.table>:not(caption)>*>* {
+    padding: 1rem .75rem
+}
+
+.btn-primary {
+    background: var(--green);
+    border-color: var(--green)
+}
+
+.btn-primary:hover {
+    background: #106847;
+    border-color: #106847
+}
+
+.btn-coral {
+    background: var(--coral);
+    color: #fff
+}
+
+.btn-coral:hover {
+    background: #db674f;
+    color: #fff
+}
+
+.auth-shell {
+    max-width: 460px;
+    margin: 4rem auto
+}
+
+.auth-brand {
+    text-align: center;
+    margin-bottom: 2rem
+}
+
+.form-control,
+.form-select {
+    padding: .7rem .8rem;
+    border-color: #ccd6cf
+}
+
+.empty {
+    padding: 3rem 1rem;
+    text-align: center;
+    color: var(--muted)
+}
