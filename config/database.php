@@ -14,7 +14,8 @@ function db(): PDO
     $name = getenv('DB_NAME') ?: DB_NAME;
     $user = getenv('DB_USER') ?: DB_USER;
     $pass = getenv('DB_PASS') ?: DB_PASS;
-    $dsn = 'mysql:host=' . $host . ';dbname=' . $name . ';charset=utf8mb4';
+    $port = getenv('DB_PORT') ?: getenv('MYSQLPORT') ?: DB_PORT;
+    $dsn = 'mysql:host=' . $host . ';port=' . $port . ';dbname=' . $name . ';charset=utf8mb4';
     try {
         $pdo = new PDO($dsn, $user, $pass, [
             PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,

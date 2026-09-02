@@ -23,7 +23,7 @@ Sistema web de gerenciamento de estoque de brechó desenvolvido para o trabalho 
 ## Publicar pelo GitHub
 O GitHub armazena o código, mas o GitHub Pages não executa PHP nem MySQL. Para colocar o sistema online, crie um repositório contendo somente esta pasta e conecte-o a um serviço com suporte a Docker, como Render.
 
-No Render, escolha **New Web Service**, conecte o repositório e deixe o ambiente Docker ser detectado pelo `Dockerfile`. Cadastre as variáveis `DB_HOST`, `DB_NAME`, `DB_USER` e `DB_PASS` usando os dados de um MySQL hospedado. Depois importe o `database.sql` nesse banco. O arquivo `render.yaml` já declara as variáveis necessárias.
+No Render, escolha **New Web Service**, conecte o repositório e deixe o ambiente Docker ser detectado pelo `Dockerfile`. Cadastre as variáveis `DB_HOST`, `DB_PORT`, `DB_NAME`, `DB_USER` e `DB_PASS` usando os dados de um MySQL hospedado. Depois importe o `database.sql` nesse banco. O arquivo `render.yaml` já declara as variáveis necessárias. Se a aplicação estiver hospedada no Railway, ela também reconhece automaticamente `MYSQLHOST`, `MYSQLPORT`, `MYSQLDATABASE`, `MYSQLUSER` e `MYSQLPASSWORD`.
 
 Não publique `config/local.php`, `.env` ou senhas no GitHub. O arquivo `.env.example` contém somente os nomes das variáveis esperadas.
 
