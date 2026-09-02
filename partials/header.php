@@ -16,7 +16,7 @@ $pageTitle = $pageTitle ?? APP_NAME;
 <body>
 <nav class="navbar navbar-expand-lg navbar-dark app-nav">
     <div class="container"><a class="navbar-brand" href="<?= $user ? 'dashboard.php' : 'login.php' ?>"><span class="brand-mark"><i data-lucide="sparkles"></i></span> Garimpo Brechó</a>
-        <?php if ($user): ?><div class="d-flex align-items-center gap-3"><div class="d-none d-md-flex gap-3"><a class="text-white text-decoration-none small" href="dashboard.php">Painel</a><a class="text-white text-decoration-none small" href="clients.php">Estoque</a><a class="text-white text-decoration-none small" href="contacts.php">Contatos</a><a class="text-white text-decoration-none small" href="report.php">Relatórios</a></div><span class="nav-user">Olá, <?= e(explode(' ', $user['name'])[0]) ?></span><a class="btn btn-sm btn-outline-light" href="logout.php">Sair</a></div><?php endif; ?>
+        <?php if ($user): ?><div class="d-flex align-items-center gap-3"><div class="d-none d-md-flex gap-3"><a class="text-white text-decoration-none small" href="dashboard.php">Painel</a><a class="text-white text-decoration-none small" href="clients.php">Estoque</a><a class="text-white text-decoration-none small" href="import.php">Importar</a><a class="text-white text-decoration-none small" href="contacts.php">Contatos</a><a class="text-white text-decoration-none small" href="report.php">Relatórios</a></div><span class="nav-user">Olá, <?= e(explode(' ', $user['name'])[0]) ?></span><a class="btn btn-sm btn-outline-light" href="logout.php">Sair</a></div><?php endif; ?>
     </div>
 </nav>
 <main class="container py-4">

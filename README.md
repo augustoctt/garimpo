@@ -6,6 +6,7 @@ Sistema web de gerenciamento de estoque de brechó desenvolvido para o trabalho 
 - Cadastro, login, logout e recuperação de senha por token com expiração.
 - Dashboard com indicadores do acervo e peças recentes.
 - CRUD completo de peças, com filtros por status e categoria.
+- Importação de estoque por CSV com modelo para download e validação transacional.
 - Catálogo com 9 categorias iconizadas e código automático inspirado na classificação Dewey (`101.001` para camisas, `102.001` para calças, `201.001` para tênis etc.).
 - Campo único de origem da peça e contatos recorrentes que podem fornecer, comprar ou fazer os dois.
 - Relatório exportável em CSV com filtros de status e categoria.
